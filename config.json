@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "data": {
+        "skills": {
+            "jitterCompensation": true,
+            "retryCount": 2,
+            "retryMs": 30,
+            "longRetryCount": 3,
+            "longRetryMs": 80,
+            "retryJittercomp": 15,
+            "retryAlways": false,
+            "delayOnFail": true,
+            "serverTimeout": 200,
+            "forceClipStrict": true,
+            "defendSuccessStrict": true
+        },
+        "ping": {
+            "interval": 6000,
+            "timeout": 30000,
+            "maxHistory": 20
+        },
+        "debug": {
+            "skills": false,
+            "loc": false,
+            "glyphs": false,
+            "projectiles": false,
+            "abnormals": false
+        }
+    }
+}

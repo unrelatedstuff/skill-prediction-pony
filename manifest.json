@@ -1,5 +1,6 @@
 {
     "files": {
+        "config.json": { "overwrite": false, "hash": "dd85d367ee6a0b59a8c9f46a0f9aa754fc5bb824b2032c2d9cffc189b019c0c2" },
         "LICENSE": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2",
         "package.json": "64aea42856d63fddf02f67382895f716a2e10429c65ca72f254ffd3de3054087",
         "README.md": "d0729a25dc4d7ce2fee82fa223f5935ef399960d4083d033ca7d5a2bb8f4f8ce",
