@@ -222,7 +222,6 @@ module.exports = {
 			'*': {
 				noInterrupt: ['41-0', '41-30', 42],
 				abnormals: { 104101: { disableSkill: true } },
-				hasChains: true,
 				longRetry: true
 			},
 			10: {
@@ -382,10 +381,7 @@ module.exports = {
 			1: true
 		},
 		16: { // Second Wind
-			0: {
-				noWeapon: true,
-				fixedSpeed: true
-			}
+			0: { fixedSpeed: true }
 		},
 		17: { // Adrenaline Rush
 			0: { fixedSpeed: true }
@@ -504,10 +500,7 @@ module.exports = {
 			30: true
 		},
 		5: { // Dash
-			0: {
-				noWeapon: true,
-				fixedSpeed: true
-			}
+			0: { fixedSpeed: true }
 		},
 		6: { // Backstab
 			0: {
@@ -592,10 +585,11 @@ module.exports = {
 			'*': { hasChains: true },
 			0: {
 				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 22],
-				chains: {
-					8: 30,
-					24: 30,
-					25: 30
+				categoryChains: {
+					3008: 30,
+					3024: 30,
+					3025: 30,
+					3026: 30
 				}
 			},
 			30: true
@@ -673,8 +667,6 @@ module.exports = {
 		28: { // Unsheathe
 			'*': { noRetry: true },
 			0: {
-				type: 'charging',
-				length: [650, 650],
 				chargeLevels: [1, 2, 3],
 				abnormals: {
 					301600: { chargeSpeed: 0.4 },
@@ -711,8 +703,6 @@ module.exports = {
 				noRetry: true
 			},
 			0: {
-				type: 'charging',
-				length: [650, 650, 650],
 				noInterrupt: [2],
 				overcharge: 450,
 				abnormals: {
@@ -722,12 +712,7 @@ module.exports = {
 					400501: { chargeSpeed: 0.4 },
 					400508: { chargeSpeed: 0.4 },
 					401150: { chargeSpeed: 0.2 }
-				},
-				level: [
-					{ length: 800 },
-					{ length: [800, 800] },
-					{ length: [800, 800] }
-				]
+				}
 			},
 			10: true,
 			11: true,
@@ -756,10 +741,7 @@ module.exports = {
 			31: true
 		},
 		5: { // Dash
-			0: {
-				noWeapon: true,
-				fixedSpeed: true
-			}
+			0: { fixedSpeed: true }
 		},
 		6: { // Sweeping Strike
 			'*': { noRetry: true },
@@ -773,8 +755,6 @@ module.exports = {
 		},
 		10: { // Cyclone
 			0: {
-				type: 'charging',
-				length: [650, 650, 650],
 				overcharge: 365,
 				canInstantCharge: true,
 				abnormals: {
@@ -784,11 +764,6 @@ module.exports = {
 					400508: { chargeSpeed: 0.4 },					
 					401150: { chargeSpeed: 0.2 }
 				},
-				level: [
-					{ length: 800 },
-					{ length: [800, 800] },
-					{ length: [800, 800] }
-				],
 				noRetry: true
 			},
 			10: { noRetry: true },
@@ -805,8 +780,6 @@ module.exports = {
 		15: { // Vampiric Blow
 			'*': { noRetry: true },
 			0: {
-				type: 'charging',
-				length: [800, 800, 800],
 				noInterrupt: [2],
 				releaseChain: {
 					overcharge: true,
@@ -865,8 +838,8 @@ module.exports = {
 			0: { fixedSpeed: true }
 		},
 		24: { // Evasive Smash
-			0: { type: 'storeCharge' },
-			5: { type: 'grantCharge' },
+			0: true,
+			5: true,
 			10: true,
 			11: true,
 			12: true,
@@ -1033,8 +1006,6 @@ module.exports = {
 		4: { // Arcane Pulse
 			'*': { noRetry: true },
 			0: {
-				type: 'charging',
-				length: [800, 800],
 				abnormals: {
 					25140: { chargeSpeed: 0.3 }
 				}
@@ -1099,11 +1070,7 @@ module.exports = {
 		},
 		19: { // Mana Siphon
 			'*': { noRetry: true },
-			0: {
-				type: 'charging',
-				length: [1005, 1005],
-				autoRelease: 0
-			},
+			0: { autoRelease: 0 },
 			10: true,
 			11: true,
 			12: true
@@ -1171,6 +1138,7 @@ module.exports = {
 				distance: [0, 333],
 				noInterrupt: [26],
 				teleportStage: 1,
+				cooldownEnd: 300,
 				noRetry: true
 			}
 		},
@@ -1233,10 +1201,7 @@ module.exports = {
 				},
 				noRetry: true
 			},
-			0: {
-				type: 'charging',
-				length: [600, 600, 600]
-			},
+			0: true,
 			10: true,
 			11: true,
 			12: true,
@@ -1255,10 +1220,7 @@ module.exports = {
 				},
 				noRetry: true
 			},
-			0: {
-				type: 'charging',
-				length: [800, 800, 800]
-			},
+			0: true,
 			10: true,
 			11: true,
 			12: true,
@@ -1404,10 +1366,8 @@ module.exports = {
 				abnormals: { 601450: { chargeSpeed: 0.5 } }
 			},
 			0: {
-				type: 'charging',
-				length: 2980,
 				chargeLevels: [null, 360213],
-				autoRelease: 100
+				autoRelease: 10
 			},
 			13: true
 		}
@@ -1505,7 +1465,7 @@ module.exports = {
 			30: true
 		},
 		18: { // Heal Thyself
-			0: { noWeapon: true }
+			0: true
 		},
 		19: { // Focus Heal
 			'*': { noRetry: true },
@@ -1559,17 +1519,7 @@ module.exports = {
 		},
 		28: { // Mana Charge / Divine Charge
 			'*': { noRetry: true },
-			0: {
-				type: 'charging',
-				length: [800, 1600],
-				autoRelease: 0,
-				level: {
-					1: {
-						length: [900, 900, 900],
-						autoRelease: 3200
-					}
-				}
-			},
+			0: { level: [{ autoRelease: 0 }] },
 			10: true,
 			11: true,
 			12: true,
@@ -1592,10 +1542,7 @@ module.exports = {
 			0: { fixedSpeed: true }
 		},
 		32: { // Divine Prayer
-			0: {
-				noWeapon: true,
-				fixedSpeed: true
-			}
+			0: { fixedSpeed: true }
 		},
 		33: { // Ishara's Lulliby
 			'*': {
@@ -1758,17 +1705,15 @@ module.exports = {
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
-				cooldownEnd: 200,
+				cooldownEnd: 300,
 				noRetry: true
 			}
 		},
 		18: { // Arun's Vitae
 			'*': { noRetry: true },
 			0: {
-				type: 'charging',
-				length: 1240,
 				chargeLevels: [10, 10],
-				autoRelease: 10,
+				autoRelease: 0,
 				abnormals: {
 					27070: { chargeSpeed: 0.25 },
 					27080: { chargeSpeed: 0.25 }
@@ -1782,10 +1727,8 @@ module.exports = {
 		22: { // Arun's Tears
 			'*': { noRetry: true },
 			0: {
-				type: 'charging',
-				length: 1240,
 				chargeLevels: [10, 10],
-				autoRelease: 10,
+				autoRelease: 0,
 				abnormals: {
 					27100: { chargeSpeed: 0.25 }
 				}
@@ -1910,7 +1853,7 @@ module.exports = {
 				distance: [0, 333],
 				noInterrupt: [17],
 				teleportStage: 1,
-				cooldownEnd: 200,
+				cooldownEnd: 300,
 				noRetry: true
 			}
 		},
@@ -2205,7 +2148,8 @@ module.exports = {
 					9: 30,
 					10: 30,
 					11: 30,
-					19: 30
+					19: 30,
+					21: 30
 				}
 			},
 			30: true,
@@ -2219,7 +2163,8 @@ module.exports = {
 					9: 32,
 					10: 32,
 					11: 32,
-					19: 32
+					19: 32,
+					21: 32
 				}
 			},
 			32: true
@@ -2634,10 +2579,8 @@ module.exports = {
 			3: true
 		},
 		9: { // Mana Missiles
+			'*': { moveDir: 1 },
 			0: {
-				type: 'charging',
-				length: 1200,
-				moveDir: 1,
 				autoRelease: 0,
 				level: {
 					9: {
@@ -3436,7 +3379,9 @@ module.exports = {
 			30: true
 		},
 		3: { // Leaves on the Wind
-			0: true,
+			'*': { hasChains: true },
+			0: { categoryChains: { 900: 30 } },
+			30: true,
 			40: true
 		},
 		4: { // Jagged Path
