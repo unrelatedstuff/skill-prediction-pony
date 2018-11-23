@@ -1,0 +1,10 @@
+{
+	"disableAutoUpdate": false,
+	"options": {
+		"niceName": "SP",
+		"settingsVersion": 2,
+		"settingsFile": "config.json",
+		"settingsMigrator": "settings_migrator.js"
+	},
+	"servers": ["https://raw.githubusercontent.com/terastuff/skill-prediction-pony/master/"]
+}
