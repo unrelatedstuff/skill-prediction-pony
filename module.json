@@ -6,5 +6,5 @@
 		"settingsFile": "config.json",
 		"settingsMigrator": "settings_migrator.js"
 	},
-	"servers": ["https://raw.githubusercontent.com/terastuff/skill-prediction-pony/master/"]
+	"servers": ["https://raw.githubusercontent.com/unrelatedstuff/skill-prediction-pony/master/"]
 }
