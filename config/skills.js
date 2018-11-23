@@ -74,7 +74,6 @@ module.exports = {
 		},
 		16: { // Charging Slash
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 1100,
 				distance: 467.88,
@@ -105,6 +104,12 @@ module.exports = {
 		},
 		21: { // Cascade of Stuns
 			0: true
+		},
+		22: { // Backstab
+			0: {
+				distance: 0,
+				onlyTarget: true
+			}
 		},
 		24: { // Smoke Aggressor
 			0: { fixedSpeed: true }
@@ -166,7 +171,6 @@ module.exports = {
 		},
 		32: { // Cross Parry
 			0: {
-				type: 'holdInfinite',
 				fixedSpeed: true,
 				requiredBuff: [100200, 100201],
 				stamina: 50
@@ -222,6 +226,7 @@ module.exports = {
 			'*': {
 				noInterrupt: ['41-0', '41-30', 42],
 				abnormals: { 104101: { disableSkill: true } },
+				hasChains: true,
 				longRetry: true
 			},
 			10: {
@@ -276,15 +281,10 @@ module.exports = {
 		},
 		2: { // Stand Fast
 			0: {
-				type: 'holdInfinite',
 				fixedSpeed: true,
 				stamina: 50,
 				level: {
-					1: {
-						length: 333,
-						stamina: 40,
-						endType51: true
-					}
+					1: { stamina: 40 }
 				},
 				noRetry: true
 			}
@@ -372,7 +372,6 @@ module.exports = {
 		},
 		15: { // Charging Lunge
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 1125,
 				distance: 474.5,
@@ -455,10 +454,8 @@ module.exports = {
 		},
 		29: { // Guardian's Barrier
 			0: {
-				type: 'holdInfinite',
 				fixedSpeed: true,
-				length: 700,
-				endType51: true
+				noRetry: true
 			}
 		},
 		30: { // Divine Protection
@@ -564,7 +561,6 @@ module.exports = {
 		},
 		17: { // Headlong Rush
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 1000,
 				distance: 413
@@ -584,7 +580,7 @@ module.exports = {
 		23: { // Measured Slice
 			'*': { hasChains: true },
 			0: {
-				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 22],
+				noInterrupt: [1, 2, 3, 4, 6, 9, 12, 13, 15, 17, 22, 23],
 				categoryChains: {
 					3008: 30,
 					3024: 30,
@@ -597,7 +593,7 @@ module.exports = {
 		24: { // Eviscerate
 			'*': { hasChains: true },
 			0: {
-				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 22, 24],
+				noInterrupt: ['1-0', '1-1', '1-2', 4, 6, 14, 16, 17, 22, 24, 26],
 				chains: {
 					1: 30,
 					2: 30,
@@ -687,10 +683,7 @@ module.exports = {
 			3: true
 		},
 		2: { // Axe Block
-			'*': {
-				type: 'holdInfinite',
-				consumeAbnormal: 401701
-			},
+			'*': { consumeAbnormal: 401701 },
 			0: { fixedSpeed: true },
 			30: true,
 			31: { fixedSpeed: true }
@@ -749,14 +742,13 @@ module.exports = {
 			30: true
 		},
 		8: { // Fiery Rage
-			0: true,
-			1: true,
+			1: { fixedSpeed: true },
 			30: true
 		},
 		10: { // Cyclone
 			0: {
 				overcharge: 365,
-				canInstantCharge: true,
+				noChargeAbnormalityId: 401701,
 				abnormals: {
 					24190: { chargeSpeed: 0.3 },
 					400500: { chargeSpeed: 0.2 },
@@ -796,8 +788,10 @@ module.exports = {
 			13: true,
 			14: true
 		},
-		16: { // Fearsome Shout
-			0: { fixedSpeed: true }
+		16: { // Fearsome Shout / Titanic Shout
+			0: { fixedSpeed: true },
+			10: { fixedSpeed: true },
+			20: true
 		},
 		18: { // Lethal Strike
 			0: {
@@ -908,7 +902,6 @@ module.exports = {
 		},
 		31: { // Overwhelm
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 1115,
 				distance: 467.88
@@ -1134,10 +1127,7 @@ module.exports = {
 		},
 		26: { // Teleport Jaunt
 			0: {
-				type: 'teleport',
-				distance: [0, 333],
 				noInterrupt: [26],
-				teleportStage: 1,
 				cooldownEnd: 300,
 				noRetry: true
 			}
@@ -1249,7 +1239,10 @@ module.exports = {
 			}
 		},
 		7: { // Feign Death
-			0: { distance: [-114.05, 0, 0] }
+			0: {
+				fixedSpeed: true,
+				moveDir: 1
+			}
 		},
 		8: { // Rapid Fire
 			'*': { noRetry: true },
@@ -1327,7 +1320,6 @@ module.exports = {
 		},
 		33: { // Chase
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 1000,
 				distance: 413
@@ -1618,10 +1610,7 @@ module.exports = {
 			3: true
 		},
 		2: { // Corruption Ring
-			0: {
-				type: 'hold',
-				chainOnRelease: 11
-			},
+			0: { cancelChain: 11 },
 			11: true,
 			12: true
 		},
@@ -1701,10 +1690,7 @@ module.exports = {
 		},
 		17: { // Teleport Jaunt
 			0: {
-				type: 'teleport',
-				distance: [0, 333],
 				noInterrupt: [17],
-				teleportStage: 1,
 				cooldownEnd: 300,
 				noRetry: true
 			}
@@ -1849,10 +1835,7 @@ module.exports = {
 		},
 		44: { // Mass Teleport
 			0: {
-				type: 'teleport',
-				distance: [0, 333],
 				noInterrupt: [17],
-				teleportStage: 1,
 				cooldownEnd: 300,
 				noRetry: true
 			}
@@ -1872,6 +1855,7 @@ module.exports = {
 		'*': { consumeAbnormal: [10151020, 10151021, 10151022, 10151023, 10151040, 10151041, 10151042] },
 		1: { // Spiral Barrage
 			'*': {
+				noInterrupt: [3, 4, 12, 20],
 				inPlace: {
 					movement: [{
 						duration: 766,
@@ -1887,13 +1871,13 @@ module.exports = {
 					}],
 					distance: 0
 				},
-				noInterrupt: [3, 4, 12, 20],
-				triggerAbnormal: { 10151020: 2000 },
-				chains: { 1: 1 },
 				noRetry: true
 			},
-			0: true,
-			1: true,
+			0: {
+				triggerAbnormal: { 10151020: 2000 },
+				categoryChains: { 90001: 1 }
+			},
+			1: { triggerAbnormal: { 10151020: 2000 } },
 			2: {
 				inPlace: {
 					movement: [{
@@ -1962,7 +1946,7 @@ module.exports = {
 		},
 		3: { // Double Shear
 			'*': {
-				noInterrupt: ['1-0', '1-2', 3, 4, 12, 20],
+				noInterrupt: ['1-0', '1-2', 3, 4, 12, 19, 20],
 				inPlace: {
 					movement: [{
 						duration: 2140,
@@ -2225,6 +2209,7 @@ module.exports = {
 		},
 		9: { // Smite
 			0: {
+				noInterrupt: [19],
 				distance: 168,
 				inPlace: {
 					movement: [{
@@ -2239,7 +2224,10 @@ module.exports = {
 			}
 		},
 		10: { // Pendulum Strike
-			'*': { moveDir: 1 },
+			'*': {
+				noInterrupt: [19],
+				moveDir: 1
+			},
 			0: {
 				chains: {
 					1: 30,
@@ -2272,7 +2260,10 @@ module.exports = {
 			41: true
 		},
 		11: { // Shadow Lash
-			'*': { noRetry: true },
+			'*': {
+				noInterrupt: [19],
+				noRetry: true
+			},
 			0: { triggerAbnormal: { 10151040: 2000 } },
 			1: { triggerAbnormal: { 10151041: 2000 } },
 			2: { triggerAbnormal: { 10151042: 2000 } },
@@ -3076,6 +3067,34 @@ module.exports = {
 			50: true,
 			51: true,
 		},
+		44: { // Balder's Vengeance (Modular Weapon System)
+			'*': {
+				noInterrupt: [44],
+				moveDir: 1,
+				noRetry: true
+			},
+			1: {
+				categoryChains: {
+					91002: null,
+					91003: null,
+					91004: null,
+					91005: null,
+					'91007,10001': null,
+					91009: null,
+					91010: null,
+					91011: null,
+					91013: null,
+					91015: null,
+					91018: null,
+					91019: null,
+					91040: null,
+					91041: null,
+					91043: null,
+					91047: null
+				}
+			},
+			30: true
+		},
 		47: { // Obliteration
 			'*': {
 				requiredBuff: 10152340,
@@ -3193,20 +3212,14 @@ module.exports = {
 				consumeAbnormalEnd: 10153004
 			},
 			10: {
-				type: 'holdInfinite',
 				fixedSpeed: true,
-				distance: 33.38,
 				triggerAbnormal: { 10153006: 0x7fffffff },
-				consumeAbnormalEnd: 10153006,
-				endType51: true
+				consumeAbnormalEnd: 10153006
 			},
 			11: {
-				type: 'holdInfinite',
 				fixedSpeed: true,
-				distance: 33.38,
 				triggerAbnormal: { 10153005: 0x7fffffff },
-				consumeAbnormalEnd: 10153005,
-				endType51: true
+				consumeAbnormalEnd: 10153005
 			},
 			12: {
 				categoryChains: {
@@ -3235,7 +3248,10 @@ module.exports = {
 			30: true
 		},
 		5: { // Bullrush
-			0: { fixedSpeed: true }
+			0: {
+				fixedSpeed: true,
+				noRetry: true
+			}
 		},
 		6: { // Haymaker
 			'*': { hasChains: true },
@@ -3292,11 +3308,37 @@ module.exports = {
 			2: { categoryChains: { 800: 30 } },
 			30: true
 		},
+		15: { // High Kick
+			'*': {
+				requiredBuff: 10153503,
+				hasChains: true
+			},
+			0: { categoryChains: { 800: 30 } },
+			30: true
+		},
 		16: { // Flip Kick
 			'*': { hasChains: true },
 			1: { categoryChains: { 800: 30 } },
 			2: { categoryChains: { 800: 30 } },
 			30: true
+		},
+		18: { // Growing Fury
+			'*': {
+				requiredBuff: 10153050,
+				hasChains: true
+			},
+			1: { categoryChains: { 800: 30 } },
+			2: { categoryChains: { 800: 30 } },
+			30: true
+		},
+		19: { // Invigorating Rage
+			'*': {
+				fixedSpeed: true,
+				stamina: 1500,
+				instantStamina: true
+			},
+			1: true,
+			2: true
 		},
 		21: { // Mounting Rage
 			'*': { fixedSpeed: true },
@@ -3380,13 +3422,17 @@ module.exports = {
 		},
 		3: { // Leaves on the Wind
 			'*': { hasChains: true },
-			0: { categoryChains: { 900: 30 } },
-			30: true,
+			0: {
+				categoryChains: {
+					911: 40,
+					'9999,900': null
+				}
+			},
+			30: { userChain: 0 }, // This skill is bugged and always triggers serverside anti-cheat
 			40: true
 		},
 		4: { // Jagged Path
 			1: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 665,
 				distance: 469
@@ -3408,7 +3454,6 @@ module.exports = {
 			'*': { hasChains: true },
 			0: { categoryChains: { 900: 30 } },
 			1: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 300,
 				distance: 246
@@ -3421,6 +3466,7 @@ module.exports = {
 		},
 		8: { // Fire Avalanche
 			'*': {
+				abnormals: { 32033: { speed: 1.2 } },
 				hasChains: true,
 				noRetry: true
 			},
@@ -3440,6 +3486,7 @@ module.exports = {
 			0: { noRetry: true }
 		},
 		11: { // Focus
+			'*': { noInterrupt: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] },
 			0: true,
 			50: true
 		},
@@ -3510,10 +3557,14 @@ module.exports = {
 			0: { fixedSpeed: true }
 		},
 		21: { // Boomerang Shuriken
-			0: { categoryChains: { 93003: 15 } },
-			11: { categoryChains: { 93003: 17 } },
-			12: { categoryChains: { 93003: 16 } },
-			13: { categoryChains: { 93003: 18 } },
+			'*': {
+				hasChains: true,
+				noRetry: true
+			},
+			0: { categoryChains: { 93003: null } },
+			11: { categoryChains: { 93003: null } },
+			12: { categoryChains: { 93003: null } },
+			13: { categoryChains: { 93003: null } },
 			15: true,
 			16: true,
 			17: true,
@@ -3523,6 +3574,7 @@ module.exports = {
 		},
 		22: { // Quick Attack
 			10: {
+				noInterrupt: [22],
 				categoryChains: {
 					93019: 30,
 					'9999,900': 20
@@ -3581,7 +3633,6 @@ module.exports = {
 		},
 		4: { // Charge
 			0: {
-				type: 'dash',
 				fixedSpeed: true,
 				length: 550,
 				distance: 436,
@@ -3621,18 +3672,16 @@ module.exports = {
 			30: { triggerAbnormal: { 10155070: 5000 } }
 		},
 		8: { // Titansbane
-			'*': {
-				fixedSpeed: true,
-				hasChains: true
-			},
+			'*': { hasChains: true },
 			0: {
+				fixedSpeed: true,
 				categoryChains: {
 					'13008,10000': 1,
 					750: 30
 				}
 			},
 			1: true,
-			30: true
+			30: { fixedSpeed: true }
 		},
 		9: { // Ground Bash
 			'*': {
