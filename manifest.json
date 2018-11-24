@@ -2,8 +2,6 @@
   "files": {
     "config.json": { "overwrite": false, "hash": "c71bc720d2dcf57898221bf2ea1f0acb2c39133d0bb919a75f4e28666aefb309"},
     "LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
-    "manifest.json": "478a6769ff4de302775cc4cc3f76852c1ae79767ec30ad00dce7fbabc891cf46",
-    "module.json": "8411ae5a45e34b3c058e1dc3117af94465afafa997d29d87d707cf9c74f10dfd",
     "package.json": "ec9af9d80518006e7f80955c61e929cca1242633f69f20587c4eb2a0591f9d6c",
     "README.md": "f885721ffd1eaea4c70fd95547cf609f688cc08da6bbc0868d227b093e2078f4",
     "settings_migrator.js": "761a9dbb95c62408a77cd095431e87f074fe4b513ae5f659c7945f183924740c",
