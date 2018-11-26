@@ -115,19 +115,26 @@ module.exports = {
 			0: { fixedSpeed: true }
 		},
 		25: { // Command: Attack
-			0: { fixedSpeed: true }
+			0: {
+				fixedSpeed: true,
+				requiredBuff: 102600
+			}
 		},
 		26: { // Command: Follow
-			0: { fixedSpeed: true }
+			0: {
+				fixedSpeed: true,
+				requiredBuff: 102600
+			}
 		},
 		28: { // Traverse Cut
 			'*': {
-				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 12, 13, 16, 17, 19, 21, 22, 28, 29, 34, 35, 36, 37, 39, 41, 42],
+				noInterrupt: [1, 2, 3, 4, 8, 9, 10, 13, 16, 17, 19, 21, 22, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 41, 42],
 				hasChains: true
 			},
 			0: {
 				categoryChains: {
 					1011: 30,
+					1012: 30,
 					1018: 30,
 					1040: 30
 				}
@@ -149,7 +156,7 @@ module.exports = {
 		30: { // Scythe
 			'*': { hasChains: true },
 			0: {
-				noInterrupt: [1, 3, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 34, 39, 41, 42],
+				noInterrupt: [1, 3, 5, 8, 9, 10, 13, 16, 17, 18, 19, 21, 22, 27, 28, 30, 31, 34, 35, 38, 39, 41, 42],
 				categoryChains: {
 					1002: 30,
 					1004: 30,
