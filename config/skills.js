@@ -574,7 +574,6 @@ module.exports = {
 			}
 		},
 		18: { // Overpower
-			'*': { fixedSpeed: true },
 			0: true,
 			50: true
 		},
@@ -668,6 +667,7 @@ module.exports = {
 			}
 		},
 		28: { // Unsheathe
+			'*': { noRetry: true },
 			0: {
 				chargeLevels: [1, 2, 3],
 				abnormals: {
@@ -675,9 +675,9 @@ module.exports = {
 					301601: { chargeSpeed: 0.6 }
 				}
 			},
-			1: { noRetry: true },
-			2: { noRetry: true },
-			3: { noRetry: true }
+			1: true,
+			2: true,
+			3: true
 		}
 	},
 	3: { // Berserker
@@ -760,7 +760,8 @@ module.exports = {
 					400501: { chargeSpeed: 0.4 },
 					400508: { chargeSpeed: 0.4 },					
 					401150: { chargeSpeed: 0.2 }
-				}
+				},
+				noRetry: true
 			},
 			10: { noRetry: true },
 			11: { noRetry: true },
