@@ -1,9 +1,9 @@
 {
   "files": {
-    "config.json": { "overwrite": false, "hash": "c71bc720d2dcf57898221bf2ea1f0acb2c39133d0bb919a75f4e28666aefb309"},
+    "config.json": { "overwrite": false, "hash": "45d525db84c6c2bea7ca793862c12f00008a51d8e75b6d41242e3b94b4e83c93"},
     "LICENSE": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
     "package.json": "ec9af9d80518006e7f80955c61e929cca1242633f69f20587c4eb2a0591f9d6c",
-    "README.md": "f885721ffd1eaea4c70fd95547cf609f688cc08da6bbc0868d227b093e2078f4",
+    "README.md": "725c55bd0c239a811377a968b07800c7850a92a64f89888aa32d195c60326b63",
     "settings_migrator.js": "761a9dbb95c62408a77cd095431e87f074fe4b513ae5f659c7945f183924740c",
     "config/abnormalities.js": "3aeaec6404779be1645aee7566c16360f5a26987ca8039d8ef9407f0da884498",
     "config/ep.json": "b71ae06085b2e17681b89ce6ff6c69f0e7ed9a64ea9cecfe63379522d24b2437",
@@ -11,7 +11,7 @@
     "config/silence.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
     "config/skills.js": "5eb2d1d4c7787f4e374899dc95cae37d26017ee4f527610ee8767902244313fb",
     "config/skills_client.json": "1da0df23d2a9ea9aa5c1401e7c0c77974908624ef92a8a4248fc243d7108f8f5",
-    "lib/abnormalities.js": "2db1abafb3f5d5a509313de4d91f0592f278f9271951f7a212b14a800fb7943c",
+    "lib/abnormalities.js": "4b7ea216c54ac70e5eebf3ee85c4420630f6e674a0a25577ffd87e291df17108",
     "lib/commands.js": "4b7ea216c54ac70e5eebf3ee85c4420630f6e674a0a25577ffd87e291df17108",
     "lib/cooldowns.js": "4204067762a9af0fc2fe7cc1bc765c217f29adba5def2b1a471dfd71d8f7df73",
     "lib/core.js": "a5351213b816e10a17c34d70495dacd5e55fa51fe9d273f12b10469b0988702e",
